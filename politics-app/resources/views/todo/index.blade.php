@@ -29,7 +29,7 @@
               <td>{{ $todo->id }}</td>
               <td>{{ $todo->title }}</td>
               <td><a href="{{ url('todos/' . $todo->id) }}" class="btn btn-info">詳細</a></td>
-              <td><a href="{{ url('todos/' . $todo->id . '.edit') }}" class="btn btn-primary">編集</a></td>
+              <td><a href="{{ url('todos/' . $todo->id . '/edit') }}" class="btn btn-primary">編集</a></td>
               <td>
                 <form method="POST" action="/todos/{{ $todo->id }}">
                   @csrf
