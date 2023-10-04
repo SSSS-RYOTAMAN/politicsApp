@@ -26,7 +26,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+      return view('todo.create');
     }
 
     /**
@@ -37,7 +37,14 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $todo = new Todo();
+      $todo->title = $request->input('title');
+      $todo->save();
+
+      return redirect('todos')->with(
+        'status',
+        $todo->title . 'を登録しました！'
+      );
     }
 
     /**
