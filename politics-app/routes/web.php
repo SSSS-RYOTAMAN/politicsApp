@@ -20,10 +20,6 @@ use App\Http\Controllers\TodoController;
 
 // Route::get('/', [TopController::class, 'index']);
 
-Route::get('/', function () {
-    return view('top/index');
-});
-
 Route::get('todos', [TodoController::class, 'index']);
 Route::get('todos/create', [TodoController::class, 'create']);
 Route::post('todos', [TodoController::class, 'store']);
