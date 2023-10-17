@@ -194,8 +194,21 @@
       <option value="30">30</option>
       <option value="31">31</option>
     </select>　日
-    <select name="" id="">
-      <option value=""></option>
+    <select name="support" id="support">
+      <option value="支持政党を選んでください">支持政党を選んでください</option>
+      <option value="0">自由民主党</option>
+      <option value="1">立憲民主党</option>
+      <option value="2">日本維新の会</option>
+      <option value="3">公明党</option>
+      <option value="4">日本共産党</option>
+      <option value="5">国民民主党</option>
+      <option value="6">れいわ新撰組</option>
+      <option value="7">社会民主党</option>
+      <option value="8">政治家女子48党</option>
+      <option value="9">参政党</option>
+      <option value="10">支持する政党がない</option>
     </select>
+    <input type="email">
+    <input type="password">
   </form>
 @endsection
