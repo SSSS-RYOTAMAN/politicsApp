@@ -4,8 +4,8 @@
   新規登録画面
   <form action="{{ route('users.store') }}" method="POST">
     @csrf
-    <input type="text" placeholder="テスト太郎">
-    <select name="" id="">
+    <input name="name" type="text" placeholder="テスト太郎">
+    <select name="sex" id="">
       <option value="選択してください">選択してください</option>
       <option value="0">男</option>
       <option value="1">女</option>
@@ -208,7 +208,7 @@
       <option value="9">参政党</option>
       <option value="10">支持する政党がない</option>
     </select>
-    <input type="email">
-    <input type="password">
+    <input name="email" type="email" placeholder="test@test.com">
+    <input name="password" type="password">
   </form>
 @endsection
