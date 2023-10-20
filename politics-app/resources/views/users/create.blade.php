@@ -210,5 +210,6 @@
     </select>
     <input name="email" type="email" placeholder="test@test.com">
     <input name="password" type="password">
+    <button type="submit">登録</button>
   </form>
 @endsection
