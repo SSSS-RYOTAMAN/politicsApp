@@ -11,7 +11,12 @@ class User extends Model
     protected $fillable = [
       'name',
       'sex',
-      'age',
+      'year',
+      'month',
+      'day',
       'support',
+      'emial',
+      'password',
+      'password_confirmation',
   ];
 }
