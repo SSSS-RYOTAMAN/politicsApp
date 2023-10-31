@@ -7,8 +7,7 @@
     </header>
     <div class="vision">
       <div>
-        <p>独自の政党支持率</p>
-        <canvas id="graph-area" height="450" width="600"></canvas>
+        <canvas id="graphArea" height="450" width="600"></canvas>
       </div>
       @if ($users->isNotEmpty())
         @foreach ($users as $user)
@@ -124,47 +123,43 @@
 
 @section('script')
   <script type="text/javascript">
-
-    // ▼グラフの中身
-    var pieData = [
-      {
-          value: 240,            // 値
-          color:"#F7464A",       // 色
-          highlight: "#FF5A5E",  // マウスが載った際の色
-          label: "自由民主党"        // ラベル
+  const ctx = document.getElementById("graphArea").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: ["自由民主党", "立憲民主党", "日本維新の会", "公明党", "日本共産党", "国民民主党", "れいわ新撰組", "社会民主党", "政治家女子48党", "参政党", "支持する政党がない"],
+      datasets: [
+        {
+          label: "data 1",
+          data: [1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10],
+          backgroundColor: [
+            "#e70112", // 自由民主党
+            "#024197", // 立憲民主党
+            "#37c200", // 日本維新の会
+            "#f55881", // 公明党
+            "#4d78d4", // 日本共産党
+            "#fbbe00", // 国民民主党
+            "#e4027e", // れいわ新撰組
+            "#3d9be7", // 社会民主党
+            "#ffef00", // 政治家女子48党
+            "#ffa500", // 参政党
+            "#b8b8b8", // 支持する政党がない
+          ],
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+          text: "独自の政党支持率",
+        },
       },
-      {
-          value: 50,
-          color: "#41C44E",
-          highlight: "#6CD173",
-          label: "立憲民主党"
-      },
-      {
-          value: 100,
-          color: "#FDB45C",
-          highlight: "#FFC870",
-          label: "日本維新の会"
-      },
-      {
-          value: 65,
-          color: "#AA49B8",
-          highlight: "#C583CF",
-          label: "公明党"
-      },
-      {
-          value: 75,
-          color: "#4D5360",
-          highlight: "#616774",
-          label: "日本共産党"
-      }
-
-    ];
-
-    // ▼上記のグラフを描画するための記述
-    window.onload = function(){
-      var ctx = document.getElementById("graph-area").getContext("2d");
-      window.myPie = new Chart(ctx).Pie(pieData);
-    };
-
+    },
+  });
   </script>
 @endsection

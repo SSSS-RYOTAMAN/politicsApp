@@ -7,16 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    use HasFactory;
-    protected $fillable = [
-      'name',
-      'sex',
-      'year',
-      'month',
-      'day',
-      'support',
-      'emial',
-      'password',
-      'password_confirmation',
+  use HasFactory;
+  protected $fillable = [
+    'name',
+    'sex',
+    'year',
+    'month',
+    'day',
+    'support',
+    'emial',
+    'password',
+    'password_confirmation',
   ];
+
+  public function countPoliticalParty()
+  {
+
+  }
 }
