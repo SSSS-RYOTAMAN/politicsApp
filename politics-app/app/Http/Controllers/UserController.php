@@ -17,9 +17,10 @@ class UserController extends Controller
     public function index()
     {
       $user = new User;
-      
+      $support = $user->countSupport();
+dd($support);
 
-      return view('users.index', compact('users'));
+      return view('users.index', compact('support'));
     }
 
     /**

@@ -20,8 +20,14 @@ class User extends Model
     'password_confirmation',
   ];
 
-  public function countPoliticalParty()
+  public function countSupport()
   {
-
+    $all = User::all()->count();
+    for ($i=0; $i <= 10; $i++) {
+      $support_num = 0;
+      $support_num = User::where('support', $i)->count();
+      $support_percent[] = round($support_num / $all * 100);
+    }
+    return $support_percent;
   }
 }

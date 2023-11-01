@@ -9,7 +9,8 @@
       <div>
         <canvas id="graphArea" height="450" width="600"></canvas>
       </div>
-      @if ($users->isNotEmpty())
+      
+      {{-- @if ($users->isNotEmpty())
         @foreach ($users as $user)
           <p>{{ $user->name }}</p>
           <p>{{ $user->sex }}</p>
@@ -18,7 +19,7 @@
           <p>{{ $user->day }}</p>
           <p>{{ $user->support }}</p>
         @endforeach
-      @endif
+      @endif --}}
       <a href="{{ url('users/create') }}">新規作成</a>
     </div>
   </section>
