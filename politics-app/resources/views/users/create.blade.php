@@ -10,9 +10,9 @@
     @enderror
     <select name="sex" id="">
       <option value="選択してください">選択してください</option>
-      <option value="0">男</option>
-      <option value="1">女</option>
-      <option value="2">その他</option>
+      <option value="0" @if(0 === (int)old('sex')) selected @endif>男</option>
+      <option value="1" @if(1 === (int)old('sex')) selected @endif>女</option>
+      <option value="2" @if(2 === (int)old('sex')) selected @endif>その他</option>
     </select>
     @error('sex')
       <p>{{ $message }}</p>

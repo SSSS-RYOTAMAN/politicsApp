@@ -20,14 +20,24 @@ class User extends Model
     'password_confirmation',
   ];
 
-  public function countSupport()
+  protected $hidden = [
+    'password_confirmation',
+    'created_at',
+    'updated_at',
+  ];
+
+  public function countValue($values)
   {
     $all = User::all()->count();
-    for ($i=0; $i <= 10; $i++) {
-      $support_num = 0;
-      $support_num = User::where('support', $i)->count();
-      $support_percent[] = round($support_num / $all * 100);
+dd($values);
+    // for ($i=0; $i <= 10; $i++) {
+    //   $support_num = User::where('support', $i)->count();
+    //   $totalPercent[] = round($support_num / $all * 100);
+    // }
+
+    foreach ($values as $value) {
+      
     }
-    return $support_percent;
+    // return $support_percent;
   }
 }

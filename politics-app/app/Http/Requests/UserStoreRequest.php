@@ -30,9 +30,9 @@ class UserStoreRequest extends FormRequest
           'month'                 => 'required|integer',
           'day'                   => 'required|integer',
           'support'               => 'required|integer',
-          'email'                 => 'required|email:filter,dns',
-          'password'              => 'required',
-          'password_confirmation' => 'required|confirmed',
+          'email'                 => 'required|email:filter,dns|unique:users',
+          'password'              => 'required|confirmed',
+          'password_confirmation' => 'required',
         ];
     }
 
@@ -43,6 +43,7 @@ class UserStoreRequest extends FormRequest
         'name.max'    => ':attribute は50文字以下にしてください',
         'integer'     => ':attribute は選択肢の中から選択してください',
         'email.email' => ':attribute は存在するメールアドレス形式で入力してください',
+        'unique'       => '入力した :attribute はすでに登録済みです',
         'confirmed'   => ':attribute はパスワードと同じものを入力してください',
       ];
     }
