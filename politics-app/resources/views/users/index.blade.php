@@ -6,20 +6,9 @@
       <h2>TOP</h2>
     </header>
     <div class="vision">
-      <div>
-        <canvas id="graphArea" height="450" width="600"></canvas>
+      <div style="width:600px;height:600px;">
+        <canvas id="graphArea"></canvas>
       </div>
-      
-      {{-- @if ($users->isNotEmpty())
-        @foreach ($users as $user)
-          <p>{{ $user->name }}</p>
-          <p>{{ $user->sex }}</p>
-          <p>{{ $user->year }}</p>
-          <p>{{ $user->month }}</p>
-          <p>{{ $user->day }}</p>
-          <p>{{ $user->support }}</p>
-        @endforeach
-      @endif --}}
       <a href="{{ url('users/create') }}">新規作成</a>
     </div>
   </section>
@@ -123,44 +112,59 @@
 @endsection
 
 @section('script')
-  <script type="text/javascript">
-  const ctx = document.getElementById("graphArea").getContext("2d");
-  const myChart = new Chart(ctx, {
-    type: "doughnut",
-    data: {
-      labels: ["自由民主党", "立憲民主党", "日本維新の会", "公明党", "日本共産党", "国民民主党", "れいわ新撰組", "社会民主党", "政治家女子48党", "参政党", "支持する政党がない"],
-      datasets: [
-        {
-          label: "data 1",
-          data: [1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10],
-          backgroundColor: [
-            "#e70112", // 自由民主党
-            "#024197", // 立憲民主党
-            "#37c200", // 日本維新の会
-            "#f55881", // 公明党
-            "#4d78d4", // 日本共産党
-            "#fbbe00", // 国民民主党
-            "#e4027e", // れいわ新撰組
-            "#3d9be7", // 社会民主党
-            "#ffef00", // 政治家女子48党
-            "#ffa500", // 参政党
-            "#b8b8b8", // 支持する政党がない
-          ],
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "独自の政党支持率",
+  @if ($supportPercent)
+    <script type="text/javascript">
+    const ctx = document.getElementById("graphArea").getContext("2d");
+    const myChart = new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: ["自由民主党", "立憲民主党", "日本維新の会", "公明党", "日本共産党", "国民民主党", "れいわ新撰組", "社会民主党", "政治家女子48党", "参政党", "支持する政党がない"],
+        datasets: [
+          {
+            label: "data 1",
+            data:
+            [
+              {{ $supportPercent[0] }},
+              {{ $supportPercent[1] }},
+              {{ $supportPercent[2] }},
+              {{ $supportPercent[3] }},
+              {{ $supportPercent[4] }},
+              {{ $supportPercent[5] }},
+              {{ $supportPercent[6] }},
+              {{ $supportPercent[7] }},
+              {{ $supportPercent[8] }},
+              {{ $supportPercent[9] }},
+              {{ $supportPercent[10] }},
+            ],
+            backgroundColor: [
+              "#e70112", // 自由民主党
+              "#024197", // 立憲民主党
+              "#37c200", // 日本維新の会
+              "#f55881", // 公明党
+              "#4d78d4", // 日本共産党
+              "#fbbe00", // 国民民主党
+              "#e4027e", // れいわ新撰組
+              "#3d9be7", // 社会民主党
+              "#ffef00", // 政治家女子48党
+              "#ffa500", // 参政党
+              "#b8b8b8", // 支持する政党がない
+            ],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          title: {
+            display: true,
+            text: "独自の政党支持率",
+          },
         },
       },
-    },
-  });
-  </script>
+    });
+    </script>
+  @endif
 @endsection

@@ -26,18 +26,8 @@ class User extends Model
     'updated_at',
   ];
 
-  public function countValue($values)
+  public function calcPercent($all, $count)
   {
-    $all = User::all()->count();
-dd($values);
-    // for ($i=0; $i <= 10; $i++) {
-    //   $support_num = User::where('support', $i)->count();
-    //   $totalPercent[] = round($support_num / $all * 100);
-    // }
-
-    foreach ($values as $value) {
-      
-    }
-    // return $support_percent;
+    return round($count / $all * 100);
   }
 }

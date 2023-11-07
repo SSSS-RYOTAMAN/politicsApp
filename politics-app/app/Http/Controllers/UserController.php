@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
+use App\Consts\PrefectureConst;
 
 class UserController extends Controller
 {
@@ -16,11 +17,20 @@ class UserController extends Controller
    */
   public function index()
   {
-    $user = new User;
-    $supports = $user->pluck('support')->toArray();
-    $support = $user->countValue($supports);
+    $user = new User();
+    $all = User::all();
+    $allCount = $all->count();
 
-    return view('users.index', compact('support'));
+    // 政党支持率
+    for ($i=0; $i <= PrefectureConst::OPTIONS['support']; $i++) {
+      $supportCount = $all->where('support', $i)->count();
+      if ($supportCount) {
+        $supportPercent[$i] = $user->calcPercent($allCount, $supportCount);
+      } else {
+        $supportPercent[$i] = 0;
+      }
+    }
+    return view('users.index', compact('supportPercent'));
   }
 
   /**
