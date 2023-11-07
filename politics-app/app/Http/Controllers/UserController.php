@@ -17,20 +17,6 @@ class UserController extends Controller
    */
   public function index()
   {
-    $user = new User();
-    $all = User::all();
-    $allCount = $all->count();
-
-    // 政党支持率
-    for ($i=0; $i <= PrefectureConst::OPTIONS['support']; $i++) {
-      $supportCount = $all->where('support', $i)->count();
-      if ($supportCount) {
-        $supportPercent[$i] = $user->calcPercent($allCount, $supportCount);
-      } else {
-        $supportPercent[$i] = 0;
-      }
-    }
-    return view('users.index', compact('supportPercent'));
   }
 
   /**
@@ -40,7 +26,7 @@ class UserController extends Controller
    */
   public function create()
   {
-    return view('users.create');
+    return view('user.create');
   }
 
   /**
@@ -64,19 +50,19 @@ class UserController extends Controller
 
     $user->save();
 
-    return redirect('/users');
+    return redirect('/');
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function show($id)
-  {
-      //
-  }
+  // /**
+  //  * Display the specified resource.
+  //  *
+  //  * @param  int  $id
+  //  * @return \Illuminate\Http\Response
+  //  */
+  // public function show($id)
+  // {
+  //     //
+  // }
 
   /**
    * Show the form for editing the specified resource.

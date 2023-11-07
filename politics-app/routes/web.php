@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::resource('users', UserController::class);
+Route::get('/', [TopController::class, 'index']);
+
+Route::get('user/create', [UserController::class, 'create']);
+Route::post('user', [UserController::class, 'store']);
 
 // Route::get('todos', [TodoController::class, 'index']);
 // Route::get('todos/create', [TodoController::class, 'create']);
