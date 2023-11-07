@@ -6,18 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
-use App\Consts\PrefectureConst;
 
 class UserController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function index()
-  {
-  }
+  // /**
+  //  * Display a listing of the resource.
+  //  *
+  //  * @return \Illuminate\Http\Response
+  //  */
+  // public function index()
+  // {
+  // }
 
   /**
    * Show the form for creating a new resource.
