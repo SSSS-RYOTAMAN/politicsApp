@@ -26,6 +26,10 @@ class TopController extends Controller
         $supportPercent[$i] = 0;
       }
     }
+
+    // 性別割合
+    $sexCount = $all->pluck('sex', 'support');
+
     return view('top.index', compact('supportPercent'));
   }
 }

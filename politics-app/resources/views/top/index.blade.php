@@ -124,17 +124,17 @@
             label: "data 1",
             data:
             [
-              {{ $supportPercent[0] }},
-              {{ $supportPercent[1] }},
-              {{ $supportPercent[2] }},
-              {{ $supportPercent[3] }},
-              {{ $supportPercent[4] }},
-              {{ $supportPercent[5] }},
-              {{ $supportPercent[6] }},
-              {{ $supportPercent[7] }},
-              {{ $supportPercent[8] }},
-              {{ $supportPercent[9] }},
-              {{ $supportPercent[10] }},
+              {{ $supportPercent[1] }} ? {{ $supportPercent[1] }}:0,
+              {{ $supportPercent[2] }} ? {{ $supportPercent[2] }}:0,
+              {{ $supportPercent[3] }} ? {{ $supportPercent[3] }}:0,
+              {{ $supportPercent[4] }} ? {{ $supportPercent[4] }}:0,
+              {{ $supportPercent[5] }} ? {{ $supportPercent[5] }}:0,
+              {{ $supportPercent[6] }} ? {{ $supportPercent[6] }}:0,
+              {{ $supportPercent[7] }} ? {{ $supportPercent[7] }}:0,
+              {{ $supportPercent[8] }} ? {{ $supportPercent[8] }}:0,
+              {{ $supportPercent[9] }} ? {{ $supportPercent[9] }}:0,
+              {{ $supportPercent[10] }} ? {{ $supportPercent[10] }}:0,
+              {{ $supportPercent[11] }} ? {{ $supportPercent[11] }}:0,
             ],
             backgroundColor: [
               "#e70112", // 自由民主党
