@@ -11,7 +11,7 @@
     @enderror
     <select name="sex">
       @foreach (PrefectureConst::SEX as $key => $value)
-        <option value="{{ $key }}">{{ $value }}</option>
+        <option value="{{ $key }}" @if($key == (int)old('sex')) selected @endif>{{ $value }}</option>
       @endforeach
     </select>
     @error('sex')
@@ -19,7 +19,7 @@
     @enderror
     <select name="year">
       @foreach (PrefectureConst::YEAR as $key => $value)
-        <option value="{{ $key }}">{{ $value }}</option>
+        <option value="{{ $key }}" @if($key == (int)old('year')) selected @endif>{{ $value }}</option>
       @endforeach
     </select>　年
     @error('year')
@@ -27,7 +27,7 @@
     @enderror
     <select name="month">
       @foreach (PrefectureConst::MONTH as $key => $value)
-        <option value="{{ $key }}">{{ $value }}</option>
+        <option value="{{ $key }}" @if($key == (int)old('month')) selected @endif>{{ $value }}</option>
       @endforeach
     </select>　月
     @error('month')
@@ -35,7 +35,7 @@
     @enderror
     <select name="day">
       @foreach (PrefectureConst::DAY as $key => $value)
-        <option value="{{ $key }}">{{ $value }}</option>
+        <option value="{{ $key }}" @if($key == (int)old('day')) selected @endif>{{ $value }}</option>
       @endforeach
     </select>　日
     @error('day')
@@ -43,7 +43,7 @@
     @enderror
     <select name="support" id="support">
       @foreach (PrefectureConst::SUPPORT as $key => $value)
-        <option value="{{ $key }}">{{ $value }}</option>
+        <option value="{{ $key }}" @if($key == (int)old('support')) selected @endif>{{ $value }}</option>
       @endforeach
     </select>
     @error('support')
