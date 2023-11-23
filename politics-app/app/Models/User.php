@@ -30,4 +30,13 @@ class User extends Model
   {
     return round($count / $all * 100);
   }
+
+  public function countSexSupport($all)
+  {
+    foreach ($all as $key => $value) {
+      $allSupport[] = $value['support'];
+    }
+    $countSupport = array_count_values($allSupport);
+    return array_keys($countSupport, max($countSupport));
+  }
 }

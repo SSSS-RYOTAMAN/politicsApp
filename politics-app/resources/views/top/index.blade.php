@@ -19,8 +19,15 @@
       <p class="bg"><img src="images/sec02_01.jpg" alt=""></p>
       <div class="txt">
         <div class="vMid">
-          <h2>MESSAGE</h2>
-          <p>ちかごろ世間で日本歴史の科学的研究ということがしきりに叫ばれている。科学的研究というのが近代史学の学問的方法による研究という意義であるならば、これは史学の学徒の間においては一般に行われていることであるから、今さらこと新しくいう。</p>
+          <h2>男女別支持政党TOP</h2>
+          <p>男性</p>
+          @foreach ($sortManSupport as $support)
+              <p>{{ PrefectureConst::SUPPORT[$support] }}</p>
+          @endforeach
+          <p>女性</p>
+          @foreach ($sortWomanSupport as $support)
+              <p>{{ PrefectureConst::SUPPORT[$support] }}</p>
+          @endforeach
         </div>
       </div>
     </div>
@@ -124,17 +131,17 @@
             label: "data 1",
             data:
             [
-              {{ $supportPercent[1] }} ? {{ $supportPercent[1] }}:0,
-              {{ $supportPercent[2] }} ? {{ $supportPercent[2] }}:0,
-              {{ $supportPercent[3] }} ? {{ $supportPercent[3] }}:0,
-              {{ $supportPercent[4] }} ? {{ $supportPercent[4] }}:0,
-              {{ $supportPercent[5] }} ? {{ $supportPercent[5] }}:0,
-              {{ $supportPercent[6] }} ? {{ $supportPercent[6] }}:0,
-              {{ $supportPercent[7] }} ? {{ $supportPercent[7] }}:0,
-              {{ $supportPercent[8] }} ? {{ $supportPercent[8] }}:0,
-              {{ $supportPercent[9] }} ? {{ $supportPercent[9] }}:0,
-              {{ $supportPercent[10] }} ? {{ $supportPercent[10] }}:0,
-              {{ $supportPercent[11] }} ? {{ $supportPercent[11] }}:0,
+              {{ $supportPercent[1] }},
+              {{ $supportPercent[2] }},
+              {{ $supportPercent[3] }},
+              {{ $supportPercent[4] }},
+              {{ $supportPercent[5] }},
+              {{ $supportPercent[6] }},
+              {{ $supportPercent[7] }},
+              {{ $supportPercent[8] }},
+              {{ $supportPercent[9] }},
+              {{ $supportPercent[10] }},
+              {{ $supportPercent[11] }},
             ],
             backgroundColor: [
               "#e70112", // 自由民主党
