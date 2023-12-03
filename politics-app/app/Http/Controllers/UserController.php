@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -48,6 +49,8 @@ class UserController extends Controller
     $user->password = Hash::make($request->input('password'));
 
     $user->save();
+
+    Auth::login($user);
 
     return redirect('/');
   }
@@ -95,5 +98,12 @@ class UserController extends Controller
   public function destroy($id)
   {
       //
+  }
+
+  public function logout()
+  {
+    Auth::logout();
+
+    return redirect('/');
   }
 }

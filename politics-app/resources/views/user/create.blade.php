@@ -36,7 +36,7 @@
           <form action="/user" method="POST">
             @csrf
             <div class="mb-[22px]">
-              <input type="text" placeholder="お名前" value="{{ old('name') }}"
+              <input name="name" type="text" placeholder="お名前" value="{{ old('name') }}"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
                 @error('name')
                   <p class="text-danger">{{ $message }}</p>
@@ -92,7 +92,7 @@
             </div>
 
             <div class="mb-[22px]">
-              <select name="day"
+              <select name="support"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
                 @foreach (PrefectureConst::SUPPORT as $key => $value)
                   <option value="{{ $key }}" @if($key == (int)old('support')) selected @endif>{{ $value }}</option>
@@ -104,7 +104,7 @@
             </div>
 
             <div class="mb-[22px]">
-              <input type="email" placeholder="メールアドレス" type="email" value="{{ old('email') }}"
+              <input name="email" placeholder="メールアドレス" type="email" value="{{ old('email') }}"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
                 @error('email')
                   <p class="text-danger">{{ $message }}</p>
@@ -112,7 +112,7 @@
             </div>
 
             <div class="mb-[22px]">
-              <input type="password" placeholder="パスワード" type="password"
+              <input name="password" placeholder="パスワード" type="password"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
                 @error('password')
                   <p class="text-danger">{{ $message }}</p>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="mb-[22px]">
-              <input type="password_confirmation" placeholder="確認用パスワード" type="password"
+              <input name="password_confirmation" placeholder="確認用パスワード" type="password"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
                 @error('password_confirmation')
                   <p class="text-danger">{{ $message }}</p>

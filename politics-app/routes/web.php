@@ -3,6 +3,7 @@
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TopController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/', [TopController::class, 'index']);
 
 Route::get('user/create', [UserController::class, 'create']);
 Route::post('user', [UserController::class, 'store']);
+Route::get('logout', [UserController::class, 'logout']);
 
 // Route::get('todos', [TodoController::class, 'index']);
 // Route::get('todos/create', [TodoController::class, 'create']);

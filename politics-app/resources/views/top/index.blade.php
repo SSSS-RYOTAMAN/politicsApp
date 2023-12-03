@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
   <!-- ====== Hero Section Start -->
-  <div id="home" class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]">
+  <div id="home" class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px] py-20">
     <div class="container">
       <div class="-mx-4 flex flex-wrap items-center">
         <div class="w-full px-4">
@@ -10,7 +10,7 @@
               class="mb-6 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
               政治に興味を持つきっかけを作るアプリ
             </h1>
-            <div style="width:600px;height:600px;">
+            <div style="width:600px;height:600px;background:white">
               <canvas id="graphArea"></canvas>
             </div>
           </div>
@@ -1638,6 +1638,11 @@
           title: {
             display: true,
             text: "独自の政党支持率",
+            color: "black",
+            font: {
+              weight: "bold",
+              size: "24",
+            }
           },
         },
       },
