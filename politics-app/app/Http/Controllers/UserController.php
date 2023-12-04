@@ -20,7 +20,7 @@ class UserController extends Controller
   // }
 
   /**
-   * Show the form for creating a new resource.
+   * 新規登録
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,10 +30,10 @@ class UserController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * バリデーション
    *
-   * @param  \Illuminate\Http\Requests\UserStoreRequest  $request
-   * @return \Illuminate\Http\Response
+   * @param UserStoreRequest $request
+   * @return void
    */
   public function store(UserStoreRequest $request)
   {
@@ -100,6 +100,36 @@ class UserController extends Controller
       //
   }
 
+  /**
+   * ログイン
+   *
+   * @param UserStoreRequest $request
+   * @return void
+   */
+  public function getLogin()
+  {
+    return view('user.login');
+  }
+
+  /**
+   * 
+   *
+   * @param UserStoreRequest $request
+   * @return void
+   */
+  public function postLogin(UserStoreRequest $request)
+  {
+    if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+      return redirect('/');
+    }
+    return redirect()->back();
+  }
+
+  /**
+   * ログアウト
+   *
+   * @return void
+   */
   public function logout()
   {
     Auth::logout();

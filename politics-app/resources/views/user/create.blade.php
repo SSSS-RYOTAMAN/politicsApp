@@ -11,7 +11,7 @@
         <div class="w-full px-4">
           <div class="text-center">
             <h1 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
-              新規登録画面</h1>
+              新規登録</h1>
           </div>
         </div>
       </div>

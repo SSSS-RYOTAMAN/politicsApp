@@ -123,10 +123,10 @@
           @guest
             <div class="justify-end pr-16 flex items-center lg:pr-0">
               <div class="hidden sm:flex">
-                <a href="signin.html" class="loginBtn py-2 px-[22px] text-base font-medium text-white hover:opacity-70">
-                  Sign In
+                <a href="{{ route('user.login') }}" class="loginBtn py-2 px-[22px] text-base font-medium text-white hover:opacity-70">
+                  ログイン
                 </a>
-                <a href="{{ url('user/create') }}"
+                <a href="{{ route('user.create') }}"
                   class="signUpBtn rounded-md bg-white bg-opacity-20 py-2 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark">
                   新規登録
                 </a>
@@ -136,7 +136,7 @@
           @auth
           <div class="justify-end pr-16 flex items-center lg:pr-0">
             <div class="hidden sm:flex">
-              <a href="{{ url('logout') }}"
+              <a href="{{ route('user.logout') }}"
                 class="signUpBtn rounded-md bg-white bg-opacity-20 py-2 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark">
                 ログアウト
               </a>

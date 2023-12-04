@@ -31,8 +31,8 @@ class UserStoreRequest extends FormRequest
           'day'                   => 'required|integer',
           'support'               => 'required|integer',
           'email'                 => 'required|email:filter,dns|unique:users',
-          'password'              => 'required|confirmed',
-          'password_confirmation' => 'required',
+          'password'              => 'required',
+          'password_confirmation' => 'required|confirmed',
         ];
     }
 
