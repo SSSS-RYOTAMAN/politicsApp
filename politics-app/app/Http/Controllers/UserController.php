@@ -122,6 +122,7 @@ class UserController extends Controller
     if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
       return redirect('/');
     }
+
     return redirect()->back();
   }
 

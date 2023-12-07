@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
 
 class UserStoreRequest extends FormRequest
 {
@@ -23,17 +24,28 @@ class UserStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'name'                  => 'required|max:50',
-          'sex'                   => 'required|integer',
-          'year'                  => 'required|integer',
-          'month'                 => 'required|integer',
-          'day'                   => 'required|integer',
-          'support'               => 'required|integer',
-          'email'                 => 'required|email:filter,dns|unique:users',
-          'password'              => 'required',
-          'password_confirmation' => 'required|confirmed',
+      $route_name = Request::route()->getName();
+      $validate = [
+        'name'                  => 'required|max:50',
+        'sex'                   => 'required|integer',
+        'year'                  => 'required|integer',
+        'month'                 => 'required|integer',
+        'day'                   => 'required|integer',
+        'support'               => 'required|integer',
+        'password'              => 'required',
+        'password_confirmation' => 'required|confirmed',
+      ];
+
+      if ($route_name === 'user.store') {
+        $validate += [
+          'email' => 'required|email:filter,dns|unique:users',
         ];
+      } else {
+        $validate += [
+          'email' => 'required',
+        ];
+      }
+      return $validate;
     }
 
     public function messages()
