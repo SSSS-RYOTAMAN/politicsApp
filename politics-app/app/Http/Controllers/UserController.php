@@ -112,18 +112,25 @@ class UserController extends Controller
   }
 
   /**
-   * 
+   * ログイン
    *
    * @param UserStoreRequest $request
    * @return void
    */
-  public function postLogin(UserStoreRequest $request)
+  public function postLogin(Request $request)
   {
-    if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-      return redirect('/');
+    $credentials = $request->validate([
+      'email' => ['required', 'email'],
+      'password' => ['required'],
+    ]);
+
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+
+        return redirect('/');
     }
 
-    return redirect()->back();
+    return back();
   }
 
   /**

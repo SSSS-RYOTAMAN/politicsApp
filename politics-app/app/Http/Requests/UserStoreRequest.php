@@ -24,28 +24,17 @@ class UserStoreRequest extends FormRequest
      */
     public function rules()
     {
-      $route_name = Request::route()->getName();
-      $validate = [
+      return [
         'name'                  => 'required|max:50',
         'sex'                   => 'required|integer',
         'year'                  => 'required|integer',
         'month'                 => 'required|integer',
         'day'                   => 'required|integer',
         'support'               => 'required|integer',
+        'email'                 => 'required|email:filter,dns|unique:users',
         'password'              => 'required',
         'password_confirmation' => 'required|confirmed',
       ];
-
-      if ($route_name === 'user.store') {
-        $validate += [
-          'email' => 'required|email:filter,dns|unique:users',
-        ];
-      } else {
-        $validate += [
-          'email' => 'required',
-        ];
-      }
-      return $validate;
     }
 
     public function messages()
