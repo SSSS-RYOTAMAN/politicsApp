@@ -130,7 +130,7 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    return back();
+    return back()->withErrors(array('email' => '入力されたメールアドレスとパスワードに紐づくIDが見つかりません。'));
   }
 
   /**
