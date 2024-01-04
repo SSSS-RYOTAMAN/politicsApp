@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Request;
 
 class UserStoreRequest extends FormRequest
 {
@@ -14,7 +13,7 @@ class UserStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+      return true;
     }
 
     /**
@@ -26,9 +25,9 @@ class UserStoreRequest extends FormRequest
     {
       return [
         'name'                  => 'required|max:50',
-        'sex'                   => 'required|select',
+        'sex'                   => 'prohibited_if:sex,null',
         'postcode'              => 'required|integer',
-        'support'               => 'required|select',
+        'support'               => 'prohibited_if:support,null',
         'email'                 => 'required|email:filter,dns|unique:users',
         'password'              => 'required',
         'password_confirmation' => 'required|confirmed',
@@ -40,7 +39,7 @@ class UserStoreRequest extends FormRequest
       return [
         'required'    => ':attribute は必須項目です',
         'name.max'    => ':attribute は50文字以下にしてください',
-        'select'      => ':attribute は選択肢の中から選択してください',
+        'prohibited_if' => ':attributeを選択してください。',
         'integer'     => ':attribute は数字で入力してください',
         'email.email' => ':attribute は存在するメールアドレス形式で入力してください',
         'unique'      => '入力した :attribute はすでに登録済みです',

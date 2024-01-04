@@ -30,7 +30,7 @@
           <div class="mb-10 text-center">
             <p>あなたのことを教えてください</p>
           </div>
-          <form action="/user" method="POST">
+          <form class="h-adr" action="/user" method="POST">
             @csrf
             {{-- 名前 --}}
             <div class="mb-[22px]">
@@ -44,6 +44,7 @@
             <div class="mb-[22px]">
               <select name="sex"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
+                <option value="null">性別を選択してください</option>
                 @foreach (PrefectureConst::SEX as $key => $value)
                   <option value="{{ $key }}" @if($key == (int)old('sex')) selected @endif>{{ $value }}</option>
                 @endforeach
@@ -52,10 +53,26 @@
                 <p class="text-danger">{{ $message }}</p>
               @enderror
             </div>
+            {{-- 郵便番号 --}}
+            <div class="mb-[22px]">
+              <span class="p-country-name" style="display:none;">Japan</span>
+              <input name="postcode" type="text" placeholder="郵便番号" value="{{ old('postcode') }}" size="8" maxlength="8"
+                class="p-postal-code border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
+              @error('postcode')
+                <p class="text-danger">{{ $message }}</p>
+              @enderror
+              <input name="pref" type="text" placeholder="都道府県" value="{{ old('pref') }}"
+                class="p-region border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
+              <input name="city" type="text" placeholder="市町村区" value="{{ old('city') }}"
+                class="p-locality border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
+              <input name="block" type="text" placeholder="町域" value="{{ old('block') }}"
+                class="p-street-address border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
+              </div>
             {{-- 支持政党 --}}
             <div class="mb-[22px]">
               <select name="support"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
+                <option value="null">支持政党を選んでください</option>
                 @foreach (PrefectureConst::SUPPORT as $key => $value)
                   <option value="{{ $key }}" @if($key == (int)old('support')) selected @endif>{{ $value }}</option>
                 @endforeach

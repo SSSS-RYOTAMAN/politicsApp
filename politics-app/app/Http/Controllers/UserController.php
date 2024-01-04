@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -41,10 +41,10 @@ class UserController extends Controller
 
     $user->name     = $request->input('name');
     $user->sex      = $request->sex;
-    $user->postcode     = $request->postcode;
-    $user->pref    = $request->pref;
-    $user->city      = $request->city;
-    $user->block      = $request->block;
+    $user->postcode = $request->input('postcode');
+    $user->pref     = $request->input('pref');
+    $user->city     = $request->input('city');
+    $user->block    = $request->input('block');
     $user->support  = $request->support;
     $user->email    = $request->input('email');
     $user->password = Hash::make($request->input('password'));
@@ -115,7 +115,7 @@ class UserController extends Controller
   /**
    * ログイン
    *
-   * @param UserStoreRequest $request
+   * @param Request $request
    * @return void
    */
   public function postLogin(Request $request)
