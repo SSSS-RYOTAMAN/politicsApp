@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="{{ asset('/css/animate.css') }}" />
   <link rel="stylesheet" href="{{ asset('/css/tailwind.css') }}" />
   <!-- ==== WOW JS ==== -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ asset('/js/chart.umd.js') }}"></script>
   <script src="{{ asset('/js/wow.min.js') }}"></script>
   <script src="{{ asset('/js/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('/js/main.js') }}"></script>
