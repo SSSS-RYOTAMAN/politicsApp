@@ -41,9 +41,10 @@ class UserController extends Controller
 
     $user->name     = $request->input('name');
     $user->sex      = $request->sex;
-    $user->year     = $request->year;
-    $user->month    = $request->month;
-    $user->day      = $request->day;
+    $user->postcode     = $request->postcode;
+    $user->pref    = $request->pref;
+    $user->city      = $request->city;
+    $user->block      = $request->block;
     $user->support  = $request->support;
     $user->email    = $request->input('email');
     $user->password = Hash::make($request->input('password'));

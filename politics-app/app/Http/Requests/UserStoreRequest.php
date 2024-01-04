@@ -26,11 +26,9 @@ class UserStoreRequest extends FormRequest
     {
       return [
         'name'                  => 'required|max:50',
-        'sex'                   => 'required|integer',
-        'year'                  => 'required|integer',
-        'month'                 => 'required|integer',
-        'day'                   => 'required|integer',
-        'support'               => 'required|integer',
+        'sex'                   => 'required|select',
+        'postcode'              => 'required|integer',
+        'support'               => 'required|select',
         'email'                 => 'required|email:filter,dns|unique:users',
         'password'              => 'required',
         'password_confirmation' => 'required|confirmed',
@@ -42,9 +40,10 @@ class UserStoreRequest extends FormRequest
       return [
         'required'    => ':attribute は必須項目です',
         'name.max'    => ':attribute は50文字以下にしてください',
-        'integer'     => ':attribute は選択肢の中から選択してください',
+        'select'      => ':attribute は選択肢の中から選択してください',
+        'integer'     => ':attribute は数字で入力してください',
         'email.email' => ':attribute は存在するメールアドレス形式で入力してください',
-        'unique'       => '入力した :attribute はすでに登録済みです',
+        'unique'      => '入力した :attribute はすでに登録済みです',
         'confirmed'   => ':attribute はパスワードと同じものを入力してください',
       ];
     }
@@ -54,9 +53,7 @@ class UserStoreRequest extends FormRequest
       return [
         'name'                  => '名前',
         'sex'                   => '性別',
-        'year'                  => '年',
-        'month'                 => '月',
-        'day'                   => '日',
+        'postcode'              => '郵便番号',
         'support'               => '支持政党',
         'email'                 => 'メールアドレス',
         'password'              => 'パスワード',

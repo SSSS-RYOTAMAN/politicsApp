@@ -28,13 +28,11 @@
           class="wow fadeInUp relative mx-auto max-w-[525px] overflow-hidden rounded-xl shadow-form bg-white dark:bg-dark-2 py-14 px-8 text-center sm:px-12 md:px-[60px]"
           data-wow-delay=".15s">
           <div class="mb-10 text-center">
-            <a href="javascript:void(0)" class="mx-auto inline-block max-w-[160px]">
-              <img src="{{ asset('/images/logo/logo.svg') }}" alt="logo" class="dark:hidden" />
-              <img src="{{ asset('/images/logo/logo-white.svg') }}" alt="logo" class="hidden dark:block" />
-            </a>
+            <p>あなたのことを教えてください</p>
           </div>
           <form action="/user" method="POST">
             @csrf
+            {{-- 名前 --}}
             <div class="mb-[22px]">
               <input name="name" type="text" placeholder="お名前" value="{{ old('name') }}"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
@@ -42,7 +40,7 @@
                   <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-
+            {{-- 性別 --}}
             <div class="mb-[22px]">
               <select name="sex"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
@@ -54,43 +52,7 @@
                 <p class="text-danger">{{ $message }}</p>
               @enderror
             </div>
-
-            <div class="mb-[22px]">
-              <select name="year"
-                class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
-                @foreach (PrefectureConst::YEAR as $key => $value)
-                  <option value="{{ $key }}" @if($key == (int)old('year')) selected @endif>{{ $value }}</option>
-                @endforeach
-              </select>
-              @error('year')
-                <p class="text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-
-            <div class="mb-[22px]">
-              <select name="month"
-                class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
-                @foreach (PrefectureConst::MONTH as $key => $value)
-                  <option value="{{ $key }}" @if($key == (int)old('month')) selected @endif>{{ $value }}</option>
-                @endforeach
-              </select>
-              @error('month')
-                <p class="text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-
-            <div class="mb-[22px]">
-              <select name="day"
-                class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
-                @foreach (PrefectureConst::DAY as $key => $value)
-                  <option value="{{ $key }}" @if($key == (int)old('day')) selected @endif>{{ $value }}</option>
-                @endforeach
-              </select>
-              @error('day')
-                <p class="text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-
+            {{-- 支持政党 --}}
             <div class="mb-[22px]">
               <select name="support"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
@@ -102,7 +64,7 @@
                 <p class="text-danger">{{ $message }}</p>
               @enderror
             </div>
-
+            {{-- メールアドレス --}}
             <div class="mb-[22px]">
               <input name="email" placeholder="メールアドレス" type="email" value="{{ old('email') }}"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
@@ -110,7 +72,7 @@
                   <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-
+            {{-- パスワード --}}
             <div class="mb-[22px]">
               <input name="password" placeholder="パスワード" type="password"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />
@@ -118,7 +80,7 @@
                   <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-
+            {{-- 確認パスワード --}}
             <div class="mb-[22px]">
               <input name="password_confirmation" placeholder="確認用パスワード" type="password"
                 class="border-stroke dark:border-dark-3 bg-transparent w-full rounded-md border py-3 px-5 text-base text-body-color dark:text-dark-6 placeholder:text-dark-6 outline-none transition focus:border-primary dark:focus:border-primary focus-visible:shadow-none" />

@@ -14,6 +14,7 @@
   <script src="{{ asset('/js/wow.min.js') }}"></script>
   <script src="{{ asset('/js/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('/js/main.js') }}"></script>
+  <script src="{{ asset('/js/yubinbango.js') }}"></script>
   <script>
     new WOW().init();
   </script>
