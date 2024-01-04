@@ -29,8 +29,8 @@ class UserStoreRequest extends FormRequest
         'postcode'              => 'required|integer',
         'support'               => 'prohibited_if:support,null',
         'email'                 => 'required|email:filter,dns|unique:users',
-        'password'              => 'required',
-        'password_confirmation' => 'required|confirmed',
+        'password'              => 'required|confirmed',
+        'password_confirmation' => 'required',
       ];
     }
 
