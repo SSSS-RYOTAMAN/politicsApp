@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- testあとで消す --}}
   <!-- ====== Banner Section Start -->
   <div class="relative z-10 overflow-hidden pt-[120px] pb-[60px] md:pt-[130px] lg:pt-[160px] dark:bg-dark">
     <div
